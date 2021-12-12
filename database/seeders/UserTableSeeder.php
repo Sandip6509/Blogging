@@ -28,7 +28,7 @@ class UserTableSeeder extends Seeder
 
         Profile::create([
             'user_id' => $user->id,
-            'avatar'  => 'uploads/avatars/test.jpg',
+            'avatar'  => 'uploads/avatars/default.jpg',
             'about'   => 'This is profile',
             'facebook'=> 'www.facebook.com',
             'youtube' => 'www.youtube.com'

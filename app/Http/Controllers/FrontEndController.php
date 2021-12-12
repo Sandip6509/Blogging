@@ -27,8 +27,10 @@ class FrontEndController extends Controller
         $tutorial = Category::find(4);
         
         $setting = Setting::first();
+
+        $tags = Tag::all();
         
-        return view('index' , compact('title','categories','first_post','second_post','third_post','career','tutorial','setting'));
+        return view('index' , compact('title','categories','first_post','second_post','third_post','career','tutorial','setting','tags'));
     }
 
 
@@ -49,8 +51,10 @@ class FrontEndController extends Controller
         $setting = Setting::first();
 
         $categories = Category::take(5)->get();
+        
+        $tags = Tag::all();
 
-        return view('single' , compact('post','title','setting','categories','next','prev'));
+        return view('single' , compact('post','title','setting','categories','next','prev','tags'));
     }
 
     public function category($id)
@@ -63,7 +67,9 @@ class FrontEndController extends Controller
 
         $categories = Category::take(5)->get();
 
-        return view('category', compact('category','title','setting','categories'));
+        $tags = Tag::all();
+
+        return view('category', compact('category','title','setting','categories','tags'));
     }
 
     public function tag($id)

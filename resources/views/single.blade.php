@@ -62,22 +62,8 @@
                             </div>
                         </div>
     
-                        <div class="socials">Share:
-                            <a href="#" class="social__item">
-                                <i class="seoicon-social-facebook"></i>
-                            </a>
-                            <a href="#" class="social__item">
-                                <i class="seoicon-social-twitter"></i>
-                            </a>
-                            <a href="#" class="social__item">
-                                <i class="seoicon-social-linkedin"></i>
-                            </a>
-                            <a href="#" class="social__item">
-                                <i class="seoicon-social-google-plus"></i>
-                            </a>
-                            <a href="#" class="social__item">
-                                <i class="seoicon-social-pinterest"></i>
-                            </a>
+                        <div class="socials text-center">
+                            <div class="addthis_inline_share_toolbox_z08y"></div>
                         </div>
     
                     </article>
@@ -85,7 +71,7 @@
                     <div class="blog-details-author">
     
                         <div class="blog-details-author-thumb">
-                            <img src="{{ asset($post->user->profile->avatar) }}" alt="Author">
+                            <img src="{{ asset($post->user->profile->avatar) }}" alt="Author" width="100px" height="100px">
                         </div>
     
                         <div class="blog-details-author-content">
@@ -144,6 +130,7 @@
                                 <span class="long-line"></span>
                             </div>
                         </div>
+                        @include('partials.disqus')
                     </div>
     
                     <div class="row">
@@ -169,15 +156,10 @@
                             </div>
     
                             <div class="tags-wrap">
-                                <a href="#" class="w-tags-item">SEO</a>
-                                <a href="#" class="w-tags-item">Advertising</a>
-                                <a href="#" class="w-tags-item">Business</a>
-                                <a href="#" class="w-tags-item">Optimization</a>
-                                <a href="#" class="w-tags-item">Digital Marketing</a>
-                                <a href="#" class="w-tags-item">Social</a>
-                                <a href="#" class="w-tags-item">Keyword</a>
-                                <a href="#" class="w-tags-item">Strategy</a>
-                                <a href="#" class="w-tags-item">Audience</a>
+                                @foreach ($tags as $tag)
+                                    <a href="#" class="w-tags-item">{{ $tag->tag }}</a>    
+                                @endforeach
+                                
                             </div>
                         </div>
                     </aside>

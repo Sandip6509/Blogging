@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Models\Category;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[FrontEndController::class,'index']);
+
+Route::post('/subscribe', function(){
+    
+});
 
 Route::get('/results',function() {
     $posts = \App\Models\Post::where('title','like','%' . request('query') . '%')->get();
@@ -45,7 +50,7 @@ Auth::routes();
 
 Route::group(['prefix' => 'admin','middleware' =>'auth'], function(){
 
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     
     Route::get('/posts/trashed',[PostController::class,'trashed'])->name('trashed');
     Route::get('/posts/kill/{id}',[PostController::class,'kill'])->name('post.kill');

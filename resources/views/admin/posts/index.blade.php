@@ -5,7 +5,11 @@
     <div class="card">
         <div class="card-header">
             Published posts
-            <a href="{{ route('trashed') }}" class="btn btn-danger btn-sm float-right" style="margin-left:5px">Trash</a>
+            @foreach ($posts as $post)
+                @if($post->onlyTrashed()->exists())
+                    <a href="{{ route('trashed') }}" class="btn btn-danger btn-sm float-right" style="margin-left:5px">Trash</a>
+                @endif
+            @endforeach
             <a href="{{ route('posts.create') }}" class="btn btn-success btn-sm float-right">Create Post</a>
         </div>
         <div class="card-body">
